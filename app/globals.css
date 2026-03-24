@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #001F3F;
+  --color-gold: #D4AF37;
+  --color-white: #FFFFFF;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-gray-800 antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 lg:py-24 px-4 sm:px-6 lg:px-8;
+  }
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  .glass-card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+  }
+  .hero-overlay {
+    background:
+      linear-gradient(110deg, rgba(0, 31, 63, 0.82) 12%, rgba(0, 31, 63, 0.62) 45%, rgba(0, 31, 63, 0.38) 100%);
+  }
+  .hero-booking-shell {
+    @apply bg-white/95 backdrop-blur-md rounded-2xl border border-white/60 overflow-hidden;
+    box-shadow: 0 20px 45px rgba(2, 22, 52, 0.28), 0 8px 18px rgba(2, 22, 52, 0.14);
+  }
+}
