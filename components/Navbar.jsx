@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
+import logo from '@/src/assets/1.png';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -18,8 +20,15 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <nav className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <Link href="/" className="font-playfair text-xl font-semibold text-primary hover:text-gold transition-colors">
-          RunwayTravel
+        <Link href="/" aria-label="RunwayTravel Home" className="flex items-center">
+          <Image
+            src={logo}
+            alt="RunwayTravel logo"
+            width={220}
+            height={70}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">
