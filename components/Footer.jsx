@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '@/src/assets/1.png';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -30,19 +32,36 @@ function SocialIcon({ icon }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t-2 border-champagneGold">
-      <div className="container-custom max-w-7xl mx-auto section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-primary text-white/90 border-t border-gold/40">
+      <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" aria-label="RunwayTravel Home" className="inline-flex items-center">
+              <span className="bg-white rounded-md px-3 py-2">
+                <Image
+                  src={logo}
+                  alt="RunwayTravel logo"
+                  width={170}
+                  height={54}
+                  className="h-8 w-auto"
+                />
+              </span>
+            </Link>
+            <p className="mt-4 text-sm text-white/70 leading-relaxed max-w-xs">
+              Premium VIP airport concierge services designed for seamless, stress-free journeys.
+            </p>
+          </div>
+
           <div>
-            <h4 className="font-playfair text-sm font-semibold text-royalBlue uppercase tracking-wider mb-4">
-              Links
+            <h4 className="font-sans text-xs font-semibold text-gold uppercase tracking-widest mb-4">
+              Quick Links
             </h4>
             <ul className="space-y-2">
               {links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-700 hover:text-champagneGold transition-colors text-sm"
+                    className="text-sm text-white/80 hover:text-gold transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -51,14 +70,14 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-playfair text-sm font-semibold text-royalBlue uppercase tracking-wider mb-4">
+            <h4 className="font-sans text-xs font-semibold text-gold uppercase tracking-widest mb-4">
               Contact
             </h4>
-            <ul className="space-y-2 text-gray-700 text-sm">
+            <ul className="space-y-2 text-sm text-white/75">
               <li>
                 <a
                   href="mailto:info@runwaytravel.com"
-                  className="hover:text-champagneGold transition-colors"
+                  className="text-white/80 hover:text-gold transition-colors"
                 >
                   info@runwaytravel.com
                 </a>
@@ -66,7 +85,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+919000000000"
-                  className="hover:text-champagneGold transition-colors"
+                  className="text-white/80 hover:text-gold transition-colors"
                 >
                   +91 90000 00000
                 </a>
@@ -74,7 +93,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-playfair text-sm font-semibold text-royalBlue uppercase tracking-wider mb-4">
+            <h4 className="font-sans text-xs font-semibold text-gold uppercase tracking-widest mb-4">
               Social Media
             </h4>
             <div className="flex gap-3">
@@ -83,7 +102,7 @@ export default function Footer() {
                   key={s.name}
                   href={s.href}
                   aria-label={s.name}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-skyBlue text-royalBlue hover:bg-champagneGold hover:text-white transition-colors"
+                  className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-white/80 hover:border-gold hover:text-gold hover:bg-white/5 transition-all"
                 >
                   <SocialIcon icon={s.icon} />
                 </a>
@@ -92,9 +111,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-skyBlue py-6">
+      <div className="border-t border-white/10 bg-black/15 py-5">
         <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 text-sm">
+          <p className="text-center text-white/60 text-sm">
             © {new Date().getFullYear()} RunwayTravel. All rights reserved.
           </p>
         </div>

@@ -6,6 +6,7 @@
   --color-primary: #001F3F;
   --color-gold: #D4AF37;
   --color-white: #FFFFFF;
+  --navbar-h: 6rem;
 }
 
 @layer base {
@@ -15,6 +16,7 @@
   body {
     @apply bg-white text-gray-800 antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: clip;
   }
 }
 

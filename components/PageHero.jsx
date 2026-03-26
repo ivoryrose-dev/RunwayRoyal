@@ -7,7 +7,7 @@ const DEFAULT_HERO_IMAGE = 'https://images.unsplash.com/photo-1436491865332-7a61
 export default function PageHero({ title, subtitle, imageSrc }) {
   const bgImage = imageSrc || DEFAULT_HERO_IMAGE;
   return (
-    <div className="relative min-h-[40vh] pt-24 flex items-center justify-center bg-gradient-to-b from-primary to-primary/90 overflow-hidden">
+    <div className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-b from-primary to-primary/90 overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url(${bgImage})` }} />
       <motion.div
         initial={{ opacity: 0, y: 20 }}

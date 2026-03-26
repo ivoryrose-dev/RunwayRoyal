@@ -27,7 +27,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Get In Touch */}
-      <section className="section-padding pt-28 bg-skyBlue border-b border-gray-200">
+      <section className="section-padding bg-skyBlue border-b border-gray-200">
         <div className="container-custom max-w-7xl mx-auto text-center">
           <h1 className="font-playfair text-4xl md:text-5xl font-semibold text-primary mb-4 border-b border-gold pb-4 inline-block">
             Get In Touch
@@ -155,15 +155,15 @@ export default function ContactPage() {
       {/* Our Global Presence */}
       <section className="section-padding bg-white border-t border-gray-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-6 border-b border-gold pb-3 w-fit">
+          <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-6 border-b border-gold pb-3 w-fit max-w-full break-words">
             Our Global Presence
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-xl overflow-hidden aspect-video bg-skyBlue border border-gray-200 flex items-center justify-center min-h-[280px]"
+              className="w-full rounded-xl overflow-hidden aspect-video bg-skyBlue border border-gray-200 flex items-center justify-center lg:min-h-[280px]"
             >
               <p className="text-gray-500 text-center px-4">Map — Worldwide service</p>
             </motion.div>

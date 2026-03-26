@@ -52,6 +52,9 @@ const services = [
   },
 ];
 
+const BOOK_CONCIERGE_BG =
+  'https://images.unsplash.com/photo-1540969795439-9f991863addd?w=1920';
+
 export default function ServicesPage() {
   return (
     <>
@@ -77,17 +80,23 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-skyBlue border-t border-gray-200">
+      <section className="relative overflow-hidden section-padding border-t border-gray-200">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${BOOK_CONCIERGE_BG})` }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 hero-overlay" aria-hidden />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="container-custom text-center"
+          className="relative z-10 container-custom text-center"
         >
-          <h2 className="font-playfair text-3xl font-semibold text-primary mb-4">
+          <h2 className="font-playfair text-3xl font-semibold text-white mb-4">
             Book your concierge service
           </h2>
-          <p className="text-gray-700 mb-8 max-w-xl mx-auto">
+          <p className="text-white/90 mb-8 max-w-xl mx-auto">
             Contact us to customize your airport experience. Our team is available 24/7 to assist you.
           </p>
           <Button href="/contact" variant="primary" size="lg">

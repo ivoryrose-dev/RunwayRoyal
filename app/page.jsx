@@ -156,7 +156,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero – split layout with content + booking panel */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-svh overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920"
           alt="Luxury travel"
@@ -166,7 +166,7 @@ export default function HomePage() {
           sizes="100vw"
         />
         <div className="absolute inset-0 hero-overlay" />
-        <div className="relative z-10 section-padding min-h-screen flex items-center">
+        <div className="relative z-10 section-padding min-h-svh flex items-center">
           <div className="container-custom w-full">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-center">
               <motion.div
@@ -428,9 +428,9 @@ export default function HomePage() {
       </section>
 
       {/* Trust stats bar */}
-      <section className="section-padding bg-white border-t border-gray-200 py-12">
+      <section className="bg-white border-t border-gray-200 px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-24">
         <div className="container-custom max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {trustStats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -438,14 +438,25 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center"
+                className="text-center min-w-0 flex flex-col items-center"
               >
-                <p className="font-playfair text-3xl md:text-4xl font-semibold text-primary">
-                  {stat.value}
-                  {stat.stars && (
-                    <span className="ml-1 text-gold text-xl" aria-hidden="true">★★★★★</span>
+                <div className="w-full min-h-[4.25rem] sm:min-h-[3.5rem] lg:min-h-[4rem] flex flex-col items-center justify-center">
+                  {stat.stars ? (
+                    <p className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-primary flex flex-col items-center sm:flex-row sm:justify-center gap-0.5 sm:gap-0">
+                      <span>{stat.value}</span>
+                      <span
+                        className="text-gold text-base sm:text-xl leading-tight sm:ml-1"
+                        aria-hidden="true"
+                      >
+                        ★★★★★
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">
+                      {stat.value}
+                    </p>
                   )}
-                </p>
+                </div>
                 <p className="text-gray-600 text-sm mt-1 uppercase tracking-wider">{stat.label}</p>
               </motion.div>
             ))}
@@ -511,26 +522,30 @@ export default function HomePage() {
       </section>
 
       {/* Global Reach */}
-      <section className="section-padding bg-skyBlue border-t border-gray-200">
+      <section className="section-padding bg-skyBlue border-t border-gray-200 overflow-hidden min-w-0">
         <div className="container-custom max-w-7xl mx-auto">
           <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
             Global Reach
           </h2>
+        </div>
+        <div className="mt-12 w-full max-w-full min-w-0 lg:w-screen lg:relative lg:left-1/2 lg:-translate-x-1/2 lg:max-w-[100vw]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative mt-12 rounded-xl overflow-hidden aspect-[21/9] max-h-[420px] border border-gray-200 shadow-md"
+            className="relative w-full max-w-full min-w-0 overflow-hidden rounded-xl border border-gray-200 border-gold/25 shadow-md min-h-[230px] aspect-[16/9] max-h-[320px] sm:aspect-[21/9] sm:max-h-[400px] lg:rounded-none lg:border-x-0 lg:border-y lg:border-gold/30 lg:aspect-auto lg:max-h-none lg:min-h-[360px] lg:h-[clamp(340px,33vw,520px)]"
           >
             <Image
               src={globalReachImage}
               alt="Global reach"
               fill
-              className="object-cover opacity-90"
-              sizes="(max-width: 1200px) 100vw, 1200px"
+              className="object-cover object-[center_35%] opacity-95 sm:object-[center_40%]"
+              sizes="(max-width: 1023px) 100vw, 100vw"
             />
-            <div className="absolute inset-0 bg-primary/40 flex items-center justify-center">
-              <p className="font-playfair text-2xl md:text-3xl text-white text-center px-4">
+            <div className="absolute inset-0 hero-overlay" aria-hidden />
+            <div className="absolute inset-0 bg-primary/15 pointer-events-none" aria-hidden />
+            <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8">
+              <p className="font-playfair text-xl sm:text-2xl lg:text-3xl text-white text-center max-w-3xl mx-auto leading-snug drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]">
                 Premium concierge services at major airports worldwide.
               </p>
             </div>
