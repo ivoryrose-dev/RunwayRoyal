@@ -38,20 +38,20 @@ export default function ContactPage() {
       {/* Request a Quote */}
       <section className="section-padding bg-white">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-6 border-b border-gold pb-3 w-fit">
+          <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-6 border-b border-gold pb-3 w-fit max-w-full break-words">
             Request a Quote
           </h2>
           {submitted ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="glass-card p-8 text-center max-w-xl mx-auto"
+              className="glass-card p-5 sm:p-8 text-center max-w-xl mx-auto"
             >
               <p className="font-playfair text-xl text-gold mb-2">Thank you for your inquiry.</p>
               <p className="text-gray-700">We will get back to you shortly.</p>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="glass-card p-8">
+            <form onSubmit={handleSubmit} className="glass-card p-4 sm:p-6 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
       {/* Instant Assistance */}
       <section className="section-padding bg-skyBlue border-t border-gray-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-6 border-b border-gold pb-3 w-fit">
+          <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-6 border-b border-gold pb-3 w-fit max-w-full break-words">
             Instant Assistance
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
@@ -116,9 +116,9 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="glass-card p-8 text-center hover:border-gold transition-all group block"
+              className="glass-card p-5 sm:p-8 text-center hover:border-gold transition-all group block min-w-0"
             >
-              <span className="text-gold font-playfair text-2xl font-semibold block mb-2">WhatsApp</span>
+              <span className="text-gold font-playfair text-xl sm:text-2xl font-semibold block mb-2">WhatsApp</span>
               <p className="text-gray-700 text-sm">Chat with us instantly</p>
             </motion.a>
             <motion.a
@@ -127,9 +127,9 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="glass-card p-8 text-center hover:border-gold transition-all group block"
+              className="glass-card p-5 sm:p-8 text-center hover:border-gold transition-all group block min-w-0"
             >
-              <span className="text-gold font-playfair text-2xl font-semibold block mb-2">24/7 Helpline</span>
+              <span className="text-gold font-playfair text-xl sm:text-2xl font-semibold block mb-2">24/7 Helpline</span>
               <p className="text-gray-700 text-sm">+91 90000 00000</p>
             </motion.a>
             <motion.a
@@ -138,10 +138,10 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="glass-card p-8 text-center hover:border-gold transition-all group block"
+              className="glass-card p-5 sm:p-8 text-center hover:border-gold transition-all group block min-w-0"
             >
-              <span className="text-gold font-playfair text-2xl font-semibold block mb-2">Email Us</span>
-              <p className="text-gray-700 text-sm">info@runwaytravel.com</p>
+              <span className="text-gold font-playfair text-xl sm:text-2xl font-semibold block mb-2">Email Us</span>
+              <p className="text-gray-700 text-sm break-words">info@runwaytravel.com</p>
             </motion.a>
           </div>
         </div>

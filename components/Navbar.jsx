@@ -19,14 +19,14 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <nav className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <Link href="/" aria-label="RunwayTravel Home" className="flex items-center">
+      <nav className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex items-center justify-between gap-3 min-w-0">
+        <Link href="/" aria-label="RunwayTravel Home" className="flex shrink-0 min-w-0 items-center max-w-[65%] sm:max-w-none">
           <Image
             src={logo}
             alt="RunwayTravel logo"
             width={420}
             height={140}
-            className="h-20 md:h-24 w-auto"
+            className="h-14 w-auto sm:h-16 md:h-20 lg:h-24"
             priority
           />
         </Link>
@@ -76,7 +76,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-200"
           >
-            <ul className="container-custom py-6 flex flex-col gap-4">
+            <ul className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link

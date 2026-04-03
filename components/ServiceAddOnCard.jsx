@@ -22,7 +22,7 @@ export default function ServiceAddOnCard({ image, title, description, alt, index
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
         />
       </div>
-      <div className="flex flex-1 flex-col p-6 lg:p-7">
+      <div className="flex flex-1 flex-col min-w-0 p-4 sm:p-6 lg:p-7">
         <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">Add-on</p>
         <h3 className="font-playfair text-lg font-semibold text-primary md:text-xl mb-2">{title}</h3>
         <p className="text-gray-700 text-sm leading-relaxed">{description}</p>

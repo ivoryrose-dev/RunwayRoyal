@@ -6,7 +6,7 @@ export default function WhatsAppFloat() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/25 transition hover:scale-105 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] md:bottom-8 md:right-8"
+      className="fixed z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/25 transition hover:scale-105 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] bottom-[max(1.25rem,env(safe-area-inset-bottom,0px)+0.5rem)] right-[max(1.25rem,env(safe-area-inset-right,0px)+0.5rem)] md:bottom-[max(1.75rem,env(safe-area-inset-bottom,0px)+0.5rem)] md:right-[max(1.75rem,env(safe-area-inset-right,0px)+0.5rem)]"
       aria-label="Chat with us on WhatsApp"
     >
       <svg

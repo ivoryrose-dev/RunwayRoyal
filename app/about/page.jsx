@@ -7,6 +7,7 @@ import commitmentImage from '@/src/assets/Our commitment.jpeg';
 import energyIcon from '@/src/assets/energy.png';
 import decideIcon from '@/src/assets/decide.png';
 import dependableIcon from '@/src/assets/dependable.png';
+import bhavyaPortrait from '@/src/assets/Gemini_Generated_Image_sdusbgsdusbgsdus-Photoroom.png';
 
 const pillars = [
   {
@@ -33,46 +34,41 @@ const commitmentItems = [
   { label: 'Approach', text: 'Personalized, detail-oriented travel experience.' },
 ];
 
-const teamMembers = [
-  { id: '01', label: 'Team 01 Member' },
-  { id: '02', label: 'Team 02 Member' },
-  { id: '03', label: 'Team 03 Member' },
-  { id: '04', label: 'Team 04 Member' },
+const coreExpertise = [
+  'VIP guest handling',
+  'Airport operations & coordination',
+  'Lounge & passenger experience',
+  'Client retention & service excellence',
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Elite Story hero */}
       <section className="min-h-[70vh] flex flex-col lg:flex-row bg-skyBlue">
-        <div className="flex-1 flex items-center section-padding lg:pr-12 order-2 lg:order-1">
+        <div className="flex-1 flex items-center section-padding py-12 sm:py-16 lg:py-20 lg:pr-16 order-2 lg:order-1">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-xl"
+            className="w-full max-w-xl lg:max-w-2xl mx-auto lg:mx-0 lg:ml-auto lg:mr-0"
           >
-            <h1 className="font-playfair text-4xl md:text-5xl font-semibold text-primary mb-2 uppercase tracking-tight">
-              Elite Story
+            <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-semibold text-primary mb-2 tracking-tight break-words">
+              Our story
             </h1>
-            <p className="text-gold text-sm uppercase tracking-widest mb-6">
-              Our Legacy in Seamless Travel
-            </p>
+            <p className="text-gold text-sm uppercase tracking-widest mb-6">Airport meet &amp; greet, done right</p>
             <p className="text-gray-700 text-lg leading-relaxed mb-4">
-              RunwayTravel was created to redefine the airport experience by offering seamless VIP concierge
-              services to travelers around the world.
+              Founded in March 2020, we provide airport meet and greet services at highly competitive prices without
+              compromising on quality.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              We believe every journey should begin and end with comfort and elegance. Our mission is to
-              transform airport travel into a smooth, luxurious experience where every detail is handled by
-              experienced professionals.
+              Our focus is simple—deliver premium service that others can&apos;t match at the same price point.
             </p>
           </motion.div>
         </div>
-        <div className="flex-1 relative min-h-[40vh] lg:min-h-[70vh] order-1 lg:order-2">
+        <div className="flex-1 relative min-h-[42vh] sm:min-h-[48vh] lg:min-h-[70vh] order-1 lg:order-2">
           <Image
             src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200"
-            alt="Elite travel"
+            alt="Airport travel"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -82,47 +78,90 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Team */}
+      {/* Founder & leadership */}
       <section className="section-padding bg-white border-t border-gray-200">
-        <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
-            The Team
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
-            {teamMembers.map((m, i) => (
-              <motion.div
-                key={m.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-skyBlue border-2 border-gold flex items-center justify-center text-gold font-playfair text-2xl font-semibold mb-4 overflow-hidden">
-                  <span>{m.id}</span>
-                </div>
-                <p className="text-gray-700 font-medium text-sm uppercase tracking-wider">{m.label}</p>
-              </motion.div>
-            ))}
-          </div>
-          <p className="text-center text-gray-600 mt-10 text-lg font-playfair italic">
-            Experience the Elite Standard.
-          </p>
-          <div className="text-center mt-8">
-            <Button href="/contact" variant="primary" size="lg">
-              Book Your Service
-            </Button>
+        <div className="container-custom max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center lg:items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative mx-auto w-full max-w-[20rem] sm:max-w-sm lg:max-w-none lg:mx-0 lg:sticky lg:top-[calc(var(--navbar-h)+1.5rem)] lg:self-start"
+            >
+              <div className="relative aspect-[3/4] max-h-[480px] lg:max-h-[540px] rounded-2xl overflow-hidden bg-black ring-1 ring-gray-200/80 shadow-xl shadow-primary/10">
+                <Image
+                  src={bhavyaPortrait}
+                  alt="Bhavya Chhabra — VIP airport assistance and operations"
+                  fill
+                  className="object-contain object-top"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  priority
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="min-w-0 flex flex-col justify-center lg:justify-start space-y-7 md:space-y-8 lg:pt-2"
+            >
+              <div>
+                <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary border-b border-gold pb-3 w-fit max-w-full mb-4">
+                  About Bhavya Chhabra
+                </h2>
+                <p className="text-gray-700 leading-relaxed text-pretty max-w-prose">
+                  Bhavya Chhabra specializes in VIP airport assistance, guest experience, and operational management.
+                  Known for handling high-pressure airport situations, Bhavya ensures smooth, stress-free journeys for
+                  every traveler.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-playfair text-lg font-semibold text-gold uppercase tracking-wider mb-3">
+                  Core expertise
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-gray-700 text-sm md:text-base max-w-2xl">
+                  {coreExpertise.map((line) => (
+                    <li key={line} className="flex gap-2.5 items-start">
+                      <span className="text-gold font-bold shrink-0" aria-hidden>
+                        ✓
+                      </span>
+                      <span className="leading-snug">{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-playfair text-lg font-semibold text-gold uppercase tracking-wider mb-3">
+                  Experience &amp; recognition
+                </h3>
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed text-pretty max-w-prose">
+                  Recognized for exceptional customer service and appreciated by passengers for delivering comfort,
+                  efficiency, and personalized assistance.
+                </p>
+              </div>
+
+              <div className="pt-1 flex flex-wrap gap-4 items-center">
+                <Button href="/contact" variant="primary" size="lg">
+                  Book your service
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Core Value Pillars */}
       <section className="section-padding bg-white border-t border-gray-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
-            Core Value Pillars
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center mb-12">
+            <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary mb-4 border-b border-gold pb-4 px-2 w-fit">
+              Core value pillars
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
             {pillars.map((p, i) => (
               <motion.div
                 key={p.title}
@@ -130,7 +169,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card p-8 flex flex-col items-center text-center group hover:border-gold transition-all"
+                className="glass-card p-7 md:p-8 flex h-full flex-col items-center text-center group hover:border-gold transition-all"
               >
                 <div className="w-16 h-16 rounded-lg bg-gold/20 flex items-center justify-center mb-6 text-gold group-hover:scale-110 transition-transform">
                   {(() => {
@@ -160,7 +199,7 @@ export default function AboutPage() {
                 <h3 className="font-playfair text-xl font-semibold text-primary mb-3">{p.title}</h3>
                 <p className="text-gray-700 text-sm flex-1 mb-6">{p.text}</p>
                 <Button href={p.href} variant="secondary" size="sm">
-                  Learn More
+                  Learn more
                 </Button>
               </motion.div>
             ))}
@@ -168,15 +207,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Commitment */}
       <section className="section-padding bg-skyBlue border-t border-gray-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative aspect-[4/5] max-h-[500px] rounded-xl overflow-hidden shadow-md"
+              className="relative mx-auto w-full max-w-md lg:max-w-none aspect-[4/5] max-h-[480px] lg:max-h-[520px] rounded-xl overflow-hidden shadow-lg shadow-primary/10"
             >
               <Image
                 src={commitmentImage}
@@ -191,12 +229,13 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="min-w-0 lg:pl-2"
             >
-              <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary mb-8 border-b border-gold pb-4 w-fit">
-                Our Commitment
+              <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary mb-6 md:mb-8 border-b border-gold pb-4 w-fit max-w-full">
+                Our commitment
               </h2>
-              <ul className="space-y-6">
-                {commitmentItems.map((item, i) => (
+              <ul className="space-y-5 md:space-y-6 max-w-xl">
+                {commitmentItems.map((item) => (
                   <li key={item.label} className="flex gap-4 items-start">
                     <span className="text-gold font-playfair text-lg font-semibold shrink-0">—</span>
                     <div>

@@ -9,7 +9,7 @@ export default function FAQ({ items, title = 'Frequently Asked Questions' }) {
   return (
     <section className="section-padding bg-white border-t border-gray-200">
       <div className="container-custom max-w-3xl mx-auto">
-        <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
+        <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit max-w-full px-1 break-words">
           {title}
         </h2>
         <ul className="mt-12 space-y-2">
@@ -24,9 +24,9 @@ export default function FAQ({ items, title = 'Frequently Asked Questions' }) {
                   aria-expanded={isOpen}
                   aria-controls={id}
                   id={`faq-question-${index}`}
-                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 text-primary font-playfair font-medium hover:bg-gray-50/50 transition-colors"
+                  className="w-full min-w-0 text-left px-4 sm:px-6 py-4 flex items-center justify-between gap-3 sm:gap-4 text-primary font-playfair font-medium text-sm sm:text-base hover:bg-gray-50/50 transition-colors"
                 >
-                  <span>{item.question}</span>
+                  <span className="min-w-0 pr-1">{item.question}</span>
                   <span className="text-gold shrink-0 text-xl" aria-hidden="true">
                     {isOpen ? '−' : '+'}
                   </span>
@@ -43,7 +43,7 @@ export default function FAQ({ items, title = 'Frequently Asked Questions' }) {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-4 text-gray-700 text-sm leading-relaxed border-t border-gray-100 pt-2">
+                      <div className="px-4 sm:px-6 pb-4 text-gray-700 text-sm leading-relaxed border-t border-gray-100 pt-2">
                         {item.answer}
                       </div>
                     </motion.div>

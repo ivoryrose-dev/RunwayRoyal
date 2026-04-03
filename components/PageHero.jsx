@@ -13,12 +13,16 @@ export default function PageHero({ title, subtitle, imageSrc }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 text-center section-padding"
+        className="relative z-10 text-center section-padding w-full max-w-full min-w-0"
       >
-        <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-semibold text-white">
+        <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white px-1 break-words text-balance">
           {title}
         </h1>
-        {subtitle && <p className="mt-4 text-white/90 text-lg max-w-2xl mx-auto">{subtitle}</p>}
+        {subtitle && (
+          <p className="mt-4 text-white/90 text-base sm:text-lg max-w-2xl mx-auto px-2 leading-relaxed">
+            {subtitle}
+          </p>
+        )}
       </motion.div>
     </div>
   );

@@ -25,7 +25,7 @@ export default function Button({
   ...props
 }) {
   const baseClass =
-    'inline-flex items-center justify-center font-medium rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-white';
+    'inline-flex items-center justify-center text-center font-medium rounded transition-all duration-300 whitespace-normal focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-white';
 
   const combinedClass = `${baseClass} ${variants[variant]} ${sizes[size]} ${className}`;
 

@@ -23,6 +23,12 @@ export const metadata = {
     'Premium airport concierge services worldwide. Meet & Assist, Fast Track, Lounge Access, and luxury transfers.',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
@@ -31,7 +37,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="font-sans min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1 min-w-0 pt-[var(--navbar-h)]">{children}</main>
+        <main className="flex-1 min-w-0 w-full overflow-x-clip pt-[var(--navbar-h)]">{children}</main>
         <Footer />
         <WhatsAppFloat />
       </body>

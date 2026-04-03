@@ -165,7 +165,7 @@ export default function HomeServicesCarousel() {
   };
 
   return (
-    <div className="relative mt-2">
+    <div className="relative mt-2 min-w-0 w-full max-w-full">
       <div
         className="relative rounded-2xl border border-gray-100 bg-gradient-to-b from-slate-50/80 to-white/40 p-3 shadow-md shadow-primary/5 md:p-5"
         onMouseEnter={() => setPaused(true)}

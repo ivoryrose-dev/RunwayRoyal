@@ -101,7 +101,7 @@ export default function ServicesPage() {
       />
 
       <section className="section-padding bg-white">
-        <div className="container-custom">
+        <div className="container-custom max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {services.map((s, i) => (
               <ServiceCard
@@ -118,7 +118,7 @@ export default function ServicesPage() {
 
       <section className="section-padding border-t border-gray-200 bg-skyBlue">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary mb-3 border-b border-gold pb-3 w-fit">
+          <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-3 border-b border-gold pb-3 w-fit max-w-full break-words">
             Add-on services
           </h2>
           <p className="text-gray-700 text-sm md:text-base max-w-2xl mt-4 mb-10 leading-relaxed">
@@ -150,12 +150,12 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative z-10 container-custom text-center"
+          className="relative z-10 container-custom max-w-7xl mx-auto text-center px-2"
         >
-          <h2 className="font-playfair text-3xl font-semibold text-white mb-4">
+          <h2 className="font-playfair text-2xl sm:text-3xl font-semibold text-white mb-4 break-words">
             Book your concierge service
           </h2>
-          <p className="text-white/90 mb-8 max-w-xl mx-auto">
+          <p className="text-white/90 mb-8 max-w-xl mx-auto text-sm sm:text-base px-2">
             Contact us to customize your airport experience. Our team is available 24/7 to assist you.
           </p>
           <Button href="/contact" variant="primary" size="lg">

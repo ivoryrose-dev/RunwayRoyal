@@ -175,7 +175,7 @@ export default function HomePage() {
                 <p className="inline-flex items-center rounded-full border border-gold/30 bg-white/10 backdrop-blur-sm px-4 py-2 text-[11px] font-semibold tracking-[0.18em] text-gold uppercase mb-5">
                   VIP airport assistance · India & worldwide
                 </p>
-                <h1 className="font-playfair text-[1.65rem] leading-tight sm:text-4xl md:text-[2.35rem] lg:text-5xl font-semibold text-white max-w-3xl">
+                <h1 className="font-playfair text-[1.65rem] leading-tight sm:text-4xl md:text-[2.35rem] lg:text-5xl font-semibold text-white max-w-3xl break-words text-balance">
                   Airport Meet and Greet Service in India{' '}
                   <span className="text-gold">| VIP Airport Assistance Booking</span>
                 </h1>
@@ -223,7 +223,7 @@ export default function HomePage() {
                 className="order-2 w-full max-w-xl xl:ml-auto xl:sticky xl:top-[calc(var(--navbar-h)+1.25rem)] xl:z-[5] xl:self-start"
               >
                 <div className="hero-booking-shell shadow-xl shadow-primary/10">
-                  <div className="px-6 pt-6 pb-5 md:px-8 md:pt-8 border-b border-slate-200/80">
+                  <div className="px-4 pt-5 pb-4 sm:px-6 sm:pt-6 sm:pb-5 md:px-8 md:pt-8 border-b border-slate-200/80">
                     <p className="text-[11px] font-semibold tracking-[0.2em] text-gold uppercase">
                       Book online
                     </p>
@@ -255,7 +255,7 @@ export default function HomePage() {
                       <button
                         type="button"
                         onClick={() => setActiveTab('arrival')}
-                        className={`py-3 px-4 text-sm font-medium transition-colors ${
+                        className={`py-3 px-2 sm:px-4 text-xs sm:text-sm font-medium transition-colors ${
                           activeTab === 'arrival'
                             ? 'bg-gold text-primary'
                             : 'text-slate-600 hover:text-primary'
@@ -266,7 +266,7 @@ export default function HomePage() {
                       <button
                         type="button"
                         onClick={() => setActiveTab('departure')}
-                        className={`py-3 px-4 text-sm font-medium transition-colors ${
+                        className={`py-3 px-2 sm:px-4 text-xs sm:text-sm font-medium transition-colors ${
                           activeTab === 'departure'
                             ? 'bg-gold text-primary'
                             : 'text-slate-600 hover:text-primary'
@@ -277,7 +277,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <form onSubmit={handleQuickBooking} className="p-6 md:p-8">
+                  <form onSubmit={handleQuickBooking} className="p-4 sm:p-6 md:p-8">
                     <div className="mb-5">
                       <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">
                         Travel Details
@@ -522,7 +522,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card text-center min-w-0 flex flex-col items-center justify-center p-7 min-h-[9.5rem]"
+                className="glass-card text-center min-w-0 flex flex-col items-center justify-center p-5 sm:p-6 md:p-7 min-h-[9.5rem]"
               >
                 <div className="w-full min-h-[4.25rem] sm:min-h-[3.5rem] lg:min-h-[4rem] flex flex-col items-center justify-center">
                   {stat.stars ? (
@@ -613,7 +613,7 @@ export default function HomePage() {
               <TestimonialCard key={t.author} quote={t.quote} author={t.author} role={t.role} index={i} />
             ))}
           </div>
-          <div className="mt-14 max-w-3xl mx-auto rounded-2xl border border-gray-200/80 bg-gradient-to-b from-slate-50/90 to-white px-6 py-10 md:px-10 md:py-12 text-center shadow-sm">
+          <div className="mt-14 max-w-3xl mx-auto rounded-2xl border border-gray-200/80 bg-gradient-to-b from-slate-50/90 to-white px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12 text-center shadow-sm min-w-0">
             <p className="text-2xl sm:text-3xl font-playfair font-semibold text-primary mb-2">Talk to our experts now</p>
             <p className="text-gray-600 text-sm md:text-base mb-8">
               <span aria-hidden>📞</span> Get instant guidance &amp; booking support
