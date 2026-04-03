@@ -60,10 +60,6 @@ export default function ContactPage() {
                     <input id="name" name="name" type="text" required className={inputClass} placeholder="Your name" />
                   </div>
                   <div>
-                    <label htmlFor="number" className="block text-sm font-medium text-gray-700 mb-1">Number *</label>
-                    <input id="number" name="number" type="tel" required className={inputClass} placeholder="+1 234 567 8900" />
-                  </div>
-                  <div>
                     <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">Date</label>
                     <input id="date" name="date" type="date" className={inputClass} />
                   </div>

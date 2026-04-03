@@ -24,9 +24,9 @@ export default function Navbar() {
           <Image
             src={logo}
             alt="RunwayTravel logo"
-            width={220}
-            height={70}
-            className="h-8 w-auto"
+            width={420}
+            height={140}
+            className="h-20 md:h-24 w-auto"
             priority
           />
         </Link>

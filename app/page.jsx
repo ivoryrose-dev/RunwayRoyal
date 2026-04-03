@@ -20,33 +20,32 @@ const airportOptions = ['Dubai (DXB)', 'London Heathrow (LHR)', 'Delhi (DEL)', '
 const services = [
   {
     icon: MeetAssistIcon,
-    title: 'Arrival (Service 01)',
+    title: 'Arrival',
     description: 'Meet & Assist, Fast Track, and lounge access from the moment you land. Your concierge greets you and guides you through arrival.',
   },
   {
     icon: FastTrackIcon,
-    title: 'Departures (Service 02)',
+    title: 'Departures',
     description: 'Seamless departure support: check-in, security fast track, porter assistance, and lounge access before your flight.',
   },
   {
     icon: TransferIcon,
-    title: 'Transfer (Service 03)',
+    title: 'Transfer',
     description: 'Luxury chauffeur-driven transfers to and from the airport. Door-to-door in premium vehicles.',
   },
 ];
 
 const whyChoose = [
-  { title: 'VIP Airport Concierge Specialists', text: 'Expert team dedicated to your comfort.' },
-  { title: 'Global Airport Network', text: 'Services at major airports worldwide.' },
-  { title: '24/7 Customer Support', text: 'Around-the-clock assistance when you need it.' },
-  { title: 'Seamless Luxury Experience', text: 'Every detail handled with care.' },
+  { title: 'VIP Airport Concierge Specialists', text: 'Expert team dedicated to your comfort' },
+  { title: 'Global Airport Network', text: 'Services at major airports worldwide' },
+  { title: '24/7 Customer Support', text: 'Around-the-clock assistance when you need it' },
+  { title: 'Seamless Luxury Experience', text: 'Every detail handled with care' },
 ];
 
 const trustStats = [
-  { value: '4.8', label: 'Rating', stars: true },
-  { value: '10,000+', label: 'Travelers' },
+  { value: '10,000+', label: 'Happy Clients' },
   { value: '24/7', label: 'Support' },
-  { value: '50+', label: 'Airports' },
+  { value: '50+', label: 'Airports Covered' },
 ];
 
 const faqItems = [
@@ -118,6 +117,9 @@ export default function HomePage() {
       flightHour: formData.get('flightHour') || '',
       flightMinute: formData.get('flightMinute') || '',
       flightNo: formData.get('flightNo') || '',
+      guestName: formData.get('guestName') || '',
+      email: formData.get('email') || '',
+      phone: formData.get('phone') || '',
       adult: formData.get('adult') || '1',
     };
 
@@ -126,6 +128,9 @@ export default function HomePage() {
       payload.departureAirport &&
       payload.arrivalAirport &&
       payload.flightNo &&
+      payload.guestName &&
+      payload.email &&
+      payload.phone &&
       (activeTab === 'arrival' ? payload.arrivalDate : payload.departureDate);
     if (!required) {
       setSubmitStatus('error');
@@ -388,6 +393,45 @@ export default function HomePage() {
                         />
                       </div>
                       <div>
+                        <label htmlFor="guestName" className="block text-sm font-medium text-slate-700 mb-1">
+                          Guest Name (*)
+                        </label>
+                        <input
+                          id="guestName"
+                          name="guestName"
+                          type="text"
+                          required
+                          placeholder="Guest full name"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">
+                          Email (*)
+                        </label>
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                          placeholder="you@example.com"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">
+                          Phone Number (*)
+                        </label>
+                        <input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          required
+                          placeholder="+1 234 567 8900"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
                         <label htmlFor="adult" className="block text-sm font-medium text-slate-700 mb-1">
                           Adult
                         </label>
@@ -430,7 +474,7 @@ export default function HomePage() {
       {/* Trust stats bar */}
       <section className="bg-white border-t border-gray-200 px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-24">
         <div className="container-custom max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {trustStats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -438,7 +482,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center min-w-0 flex flex-col items-center"
+                className="glass-card text-center min-w-0 flex flex-col items-center p-6"
               >
                 <div className="w-full min-h-[4.25rem] sm:min-h-[3.5rem] lg:min-h-[4rem] flex flex-col items-center justify-center">
                   {stat.stars ? (

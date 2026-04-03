@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '@/components/Button';
 import commitmentImage from '@/src/assets/Our commitment.jpeg';
+import energyIcon from '@/src/assets/energy.png';
+import decideIcon from '@/src/assets/decide.png';
+import dependableIcon from '@/src/assets/dependable.png';
 
 const pillars = [
   {
@@ -130,7 +133,29 @@ export default function AboutPage() {
                 className="glass-card p-8 flex flex-col items-center text-center group hover:border-gold transition-all"
               >
                 <div className="w-16 h-16 rounded-lg bg-gold/20 flex items-center justify-center mb-6 text-gold group-hover:scale-110 transition-transform">
-                  <span className="font-playfair text-2xl font-semibold">{p.title.charAt(0)}</span>
+                  {(() => {
+                    const initial = p.title.charAt(0).toUpperCase();
+                    const iconByInitial = {
+                      E: energyIcon,
+                      D: decideIcon,
+                      R: dependableIcon,
+                    };
+                    const src = iconByInitial[initial];
+                    if (src) {
+                      return (
+                        <Image
+                          src={src}
+                          alt={`${p.title} icon`}
+                          width={64}
+                          height={64}
+                          className="w-full h-full object-contain"
+                        />
+                      );
+                    }
+                    return (
+                      <span className="font-playfair text-2xl font-semibold">{p.title.charAt(0)}</span>
+                    );
+                  })()}
                 </div>
                 <h3 className="font-playfair text-xl font-semibold text-primary mb-3">{p.title}</h3>
                 <p className="text-gray-700 text-sm flex-1 mb-6">{p.text}</p>

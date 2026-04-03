@@ -8,6 +8,9 @@ function buildEmailBody(payload) {
   const lines = [
     `Quick Booking Request (${type})`,
     '---',
+    `Guest Name: ${payload.guestName || '-'}`,
+    `Email: ${payload.email || '-'}`,
+    `Phone Number: ${payload.phone || '-'}`,
     `Travel Sector: ${payload.travelSector || '-'}`,
     `Departure Airport: ${payload.departureAirport || '-'}`,
     `Arrival Airport: ${payload.arrivalAirport || '-'}`,
@@ -34,6 +37,9 @@ export async function POST(request) {
       flightHour,
       flightMinute,
       flightNo,
+      guestName,
+      email,
+      phone,
       adult,
     } = body;
 
@@ -43,6 +49,9 @@ export async function POST(request) {
       departureAirport &&
       arrivalAirport &&
       flightNo &&
+      guestName &&
+      email &&
+      phone &&
       (tab === 'arrival' ? arrivalDate : departureDate);
     if (!required) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
