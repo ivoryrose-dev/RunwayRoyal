@@ -1,8 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '@/components/Button';
+import PageHero from '@/components/PageHero';
+import globalReachImage from '@/src/assets/Global reach.jpeg';
 
 const serviceRequestOptions = ['Meet & Assist', 'Fast Track', 'Porter', 'Buggy', 'Lounge Access', 'Transfer', 'Multiple / Custom'];
 const bookingTypeOptions = ['Arrival', 'Departure', 'Transfer', 'Full Service'];
@@ -26,15 +29,11 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Get In Touch */}
-      <section className="section-padding bg-skyBlue border-b border-gray-200">
-        <div className="container-custom max-w-7xl mx-auto text-center">
-          <h1 className="font-playfair text-4xl md:text-5xl font-semibold text-primary mb-4 border-b border-gold pb-4 inline-block">
-            Get In Touch
-          </h1>
-          <p className="text-gray-700 text-lg mt-4">We are 24/7 to assist you.</p>
-        </div>
-      </section>
+      <PageHero
+        title="Get In Touch"
+        subtitle="We are 24/7 to assist you."
+        imageSrc="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920"
+      />
 
       {/* Request a Quote */}
       <section className="section-padding bg-white">
@@ -159,9 +158,17 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="w-full rounded-xl overflow-hidden aspect-video bg-skyBlue border border-gray-200 flex items-center justify-center lg:min-h-[280px]"
+              className="relative isolate w-full min-h-[220px] overflow-hidden rounded-xl border border-gray-200 aspect-video bg-slate-950 lg:min-h-[280px]"
             >
-              <p className="text-gray-500 text-center px-4">Map — Worldwide service</p>
+              <Image
+                src={globalReachImage}
+                alt="Global network and worldwide airport presence"
+                fill
+                priority
+                placeholder="blur"
+                className="object-cover object-[center_35%]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}

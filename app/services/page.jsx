@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import PageHero from '@/components/PageHero';
 import ServiceCard from '@/components/ServiceCard';
+import ServiceAddOnCard from '@/components/ServiceAddOnCard';
 import Button from '@/components/Button';
 import {
   MeetAssistIcon,
@@ -12,6 +13,10 @@ import {
   LoungeIcon,
   TransferIcon,
 } from '@/components/icons/ServiceIcons';
+import imgBuggyAddOn from '@/src/assets/Buggy.webp';
+import imgFlowerCart from '@/src/assets/Flower Cart.webp';
+import imgLoungeAddOn from '@/src/assets/Lounge.webp';
+import imgSpaService from '@/src/assets/Spa-Service.webp';
 
 const services = [
   {
@@ -55,6 +60,37 @@ const services = [
 const BOOK_CONCIERGE_BG =
   'https://images.unsplash.com/photo-1540969795439-9f991863addd?w=1920';
 
+const addOnServices = [
+  {
+    image: imgBuggyAddOn,
+    title: 'Terminal buggy escort',
+    description:
+      'Optional electric cart service inside the terminal for long walks, tight connections, or extra comfort. Add it to meet & assist or request it on its own where the airport offers buggies.',
+    alt: 'Airport terminal electric buggy service',
+  },
+  {
+    image: imgFlowerCart,
+    title: 'Flowers & welcome gestures',
+    description:
+      'Pre-arranged bouquets or welcome arrangements for arrivals, VIP guests, or special occasions—coordinated with your greeter so everything is ready at the meeting point.',
+    alt: 'Floral welcome and cart service at the airport',
+  },
+  {
+    image: imgLoungeAddOn,
+    title: 'Partner lounge upgrades',
+    description:
+      'Access to additional partner lounges, longer stays, or lounge bundles beyond standard inclusion. We match you to the right lounge for your airline, terminal, and travel class.',
+    alt: 'Premium airport lounge seating and amenities',
+  },
+  {
+    image: imgSpaService,
+    title: 'Airport spa time',
+    description:
+      'Book massage, wellness, or spa time before departure or between flights at participating airports—ideal for long-haul travelers who want to reset before boarding.',
+    alt: 'Airport spa and wellness service',
+  },
+];
+
 export default function ServicesPage() {
   return (
     <>
@@ -73,6 +109,29 @@ export default function ServicesPage() {
                 icon={s.icon}
                 title={s.title}
                 description={s.description}
+                index={i}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding border-t border-gray-200 bg-skyBlue">
+        <div className="container-custom max-w-7xl mx-auto">
+          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary mb-3 border-b border-gold pb-3 w-fit">
+            Add-on services
+          </h2>
+          <p className="text-gray-700 text-sm md:text-base max-w-2xl mt-4 mb-10 leading-relaxed">
+            Optional extras to layer onto your core booking. Tell us what you need when you request a quote or speak with our concierge—we will confirm availability at your airport.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+            {addOnServices.map((s, i) => (
+              <ServiceAddOnCard
+                key={s.title}
+                image={s.image}
+                title={s.title}
+                description={s.description}
+                alt={s.alt}
                 index={i}
               />
             ))}

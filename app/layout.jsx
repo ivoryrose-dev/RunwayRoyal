@@ -2,6 +2,7 @@ import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 import logo from '@/src/assets/1.png';
 
 const playfair = Playfair_Display({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className="flex-1 min-w-0 pt-[var(--navbar-h)]">{children}</main>
         <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   );

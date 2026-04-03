@@ -4,98 +4,90 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '@/components/Button';
-import ServiceCard from '@/components/ServiceCard';
+import HomeServicesCarousel from '@/components/HomeServicesCarousel';
 import TestimonialCard from '@/components/TestimonialCard';
 import FAQ from '@/components/FAQ';
-import globalReachImage from '@/src/assets/Global reach.jpeg';
-import {
-  MeetAssistIcon,
-  FastTrackIcon,
-  TransferIcon,
-} from '@/components/icons/ServiceIcons';
-
+import globalReachHeroImage from '@/src/assets/flight-computer-graphic-airplane-wireless-cap.jpg';
 const travelSectorOptions = ['Domestic', 'International'];
 const airportOptions = ['Dubai (DXB)', 'London Heathrow (LHR)', 'Delhi (DEL)', 'Mumbai (BOM)', 'Singapore (SIN)', 'Doha (DOH)', 'Other'];
 
-const services = [
-  {
-    icon: MeetAssistIcon,
-    title: 'Arrival',
-    description: 'Meet & Assist, Fast Track, and lounge access from the moment you land. Your concierge greets you and guides you through arrival.',
-  },
-  {
-    icon: FastTrackIcon,
-    title: 'Departures',
-    description: 'Seamless departure support: check-in, security fast track, porter assistance, and lounge access before your flight.',
-  },
-  {
-    icon: TransferIcon,
-    title: 'Transfer',
-    description: 'Luxury chauffeur-driven transfers to and from the airport. Door-to-door in premium vehicles.',
-  },
-];
-
 const whyChoose = [
-  { title: 'VIP Airport Concierge Specialists', text: 'Expert team dedicated to your comfort' },
-  { title: 'Global Airport Network', text: 'Services at major airports worldwide' },
-  { title: '24/7 Customer Support', text: 'Around-the-clock assistance when you need it' },
-  { title: 'Seamless Luxury Experience', text: 'Every detail handled with care' },
+  {
+    title: '24/7 customer support',
+    text: 'Call, WhatsApp, or book anytime—quick answers and end-to-end coordination.',
+  },
+  {
+    title: 'Trusted by global travelers',
+    text: 'Meet & greet, fast track, and lounges across India and 600+ airports.',
+  },
+  {
+    title: 'Safe & secure booking',
+    text: 'Clear quotes, no hidden fees, instant confirmation before you fly.',
+  },
+  {
+    title: 'Experienced airport staff',
+    text: 'Trained greeters who know terminals, immigration, and smooth passenger flow.',
+  },
 ];
 
 const trustStats = [
-  { value: '10,000+', label: 'Happy Clients' },
-  { value: '24/7', label: 'Support' },
-  { value: '50+', label: 'Airports Covered' },
+  { value: '600+', label: 'Airports worldwide' },
+  { value: '24/7', label: 'Live support' },
+  { value: '100%', label: 'Secure booking' },
 ];
 
 const faqItems = [
   {
-    question: 'How do I book services?',
+    question: 'What is airport meet and greet service?',
     answer:
-      'You can book through our website by filling out the Quick Booking form on the home page or the Request a Quote form on the Contact page. You can also call or WhatsApp us for immediate assistance—our team is available 24/7.',
+      'A greeter helps with check-in, immigration, baggage, and wayfinding so you avoid stress and long queues.',
   },
   {
-    question: 'Which airports do you serve?',
+    question: 'Can I book airport assistance for elderly passengers?',
     answer:
-      'We serve major airports worldwide including Dubai (DXB), London Heathrow (LHR), Delhi (DEL), Mumbai (BOM), Singapore (SIN), Doha (DOH), and many more. Contact us to confirm availability at your airport.',
+      'Yes—wheelchair support, escort, and priority handling where available. Share needs when you book.',
   },
   {
-    question: 'Do you provide transportation at Mumbai and Delhi airports?',
+    question: 'How do I book airport meet and greet service?',
     answer:
-      'Yes. We offer luxury airport transfers at Mumbai, Delhi, and other Indian and international airports. Mention your transfer requirements when submitting a quote or booking request, and our team will arrange a chauffeur-driven vehicle for you.',
+      'Use the form on this page, request a quote on Contact, or WhatsApp us for fast confirmation—24/7.',
   },
   {
-    question: 'What are the average charges for your services?',
+    question: 'Which airports in India do you cover?',
     answer:
-      'Charges vary by airport and service type (arrival, departure, lounge access, transfers, etc.). For accurate pricing, please submit a quote request with your travel details, or contact us by phone or email. We will provide a tailored quote.',
+      'Mumbai, Delhi, Bangalore, Ahmedabad, and more—plus 600+ airports globally. Send your route to confirm.',
   },
   {
-    question: 'Is your service reliable?',
+    question: 'How is pricing calculated?',
     answer:
-      'Yes. We are committed to a seamless, stress-free experience. Our dedicated concierge team is available 24/7, and we work with trained professionals at each airport. If you have any concerns during or after your journey, contact us and we will address them promptly.',
+      'By airport, service type (arrival, departure, transit), and add-ons. Tailored quotes, no hidden fees.',
   },
 ];
 
 const testimonials = [
   {
-    quote: 'Exceptional service from start to finish. The team made my layover in Dubai completely stress-free.',
-    author: 'James Mitchell',
-    role: 'Business Executive',
+    quote:
+      "Peace of mind from arrival to boarding—every step explained and handled professionally.",
+    author: 'Priya N.',
+    role: 'International traveler',
   },
   {
-    quote: 'RunwayTravel transformed my airport experience. Fast track and lounge access were worth every penny.',
-    author: 'Sarah Chen',
-    role: 'Frequent Traveler',
+    quote:
+      'Fast track and a gate greeter saved us hours on a tight connection—great for families and seniors.',
+    author: 'Rahul K.',
+    role: 'Family traveler',
   },
   {
-    quote: 'The luxury transfer and meet & assist made traveling with my family an absolute pleasure.',
-    author: 'David & Emma Roberts',
-    role: 'Family Travelers',
+    quote:
+      'WhatsApp booking in minutes; instant confirmation and clear meet-point details at Mumbai.',
+    author: 'Anita S.',
+    role: 'Business traveler',
   },
   {
-    quote: 'Discreet, efficient, and always on time. This is how airport travel should feel.',
-    author: 'Michael Torres',
-    role: 'International Consultant',
+    quote:
+      "Wheelchair and escort through immigration for my parents' arrival—completely stress-free.",
+    author: 'Vikram M.',
+    role: 'Booked for elderly parents',
   },
 ];
 
@@ -164,38 +156,62 @@ export default function HomePage() {
       <section className="relative min-h-svh overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920"
-          alt="Luxury travel"
+          alt="Airport meet and greet and VIP assistance at terminal"
           fill
           className="object-cover"
           priority
           sizes="100vw"
         />
         <div className="absolute inset-0 hero-overlay" />
-        <div className="relative z-10 section-padding min-h-svh flex items-center">
-          <div className="container-custom w-full">
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 section-padding min-h-svh flex items-center py-12 sm:py-16">
+          <div className="container-custom w-full max-w-[1400px]">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-start xl:items-center">
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="order-1 max-w-2xl"
+                className="order-1 max-w-2xl xl:max-w-none xl:pr-4"
               >
                 <p className="inline-flex items-center rounded-full border border-gold/30 bg-white/10 backdrop-blur-sm px-4 py-2 text-[11px] font-semibold tracking-[0.18em] text-gold uppercase mb-5">
-                  VIP Airport Concierge Worldwide
+                  VIP airport assistance · India & worldwide
                 </p>
-                <h1 className="font-playfair text-4xl sm:text-5xl lg:text-6xl leading-[1.05] font-semibold text-white">
-                  Your Journey,
-                  <span className="text-gold"> Redefined.</span>
+                <h1 className="font-playfair text-[1.65rem] leading-tight sm:text-4xl md:text-[2.35rem] lg:text-5xl font-semibold text-white max-w-3xl">
+                  Airport Meet and Greet Service in India{' '}
+                  <span className="text-gold">| VIP Airport Assistance Booking</span>
                 </h1>
-                <p className="mt-5 text-white/90 text-base md:text-lg max-w-xl">
-                  Seamless arrivals, departures, and transfers with a dedicated concierge at every step.
+                <p className="mt-5 text-white/90 text-base md:text-lg max-w-xl leading-relaxed">
+                  Skip queues and stress—professional assistance for arrivals, departures &amp; transit at{' '}
+                  <span className="font-semibold text-white">600+ airports worldwide</span>.
                 </p>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <Button href="/contact" variant="primary">
-                    Request A Quote
+                <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-white/95 text-sm md:text-base max-w-xl sm:max-w-2xl">
+                  {['Fast track immigration', 'Personal assistance', 'Lounge access', '24/7 support'].map((line) => (
+                    <li key={line} className="flex gap-2.5 items-start">
+                      <span className="text-gold font-bold shrink-0" aria-hidden>
+                        ✓
+                      </span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-5">
+                  <Button href="/contact" variant="primary" className="text-center !px-5 !py-3 !text-sm sm:!text-base shrink-0">
+                    Book airport meet &amp; greet online in minutes
                   </Button>
-                  <p className="text-sm text-white/90">
-                    Trusted by <span className="font-semibold text-gold">10,000+</span> travelers worldwide.
+                  <p className="text-sm text-white/90 sm:max-w-[14rem]">
+                    <span className="text-gold mr-1" aria-hidden>
+                      👉
+                    </span>
+                    Instant guidance via{' '}
+                    <a
+                      href="https://wa.me/919000000000"
+                      className="font-semibold text-gold underline underline-offset-2 hover:text-white"
+                    >
+                      WhatsApp
+                    </a>
+                    {' · '}
+                    <a href="tel:+919000000000" className="font-semibold text-gold underline underline-offset-2 hover:text-white">
+                      Call
+                    </a>
                   </p>
                 </div>
               </motion.div>
@@ -204,19 +220,34 @@ export default function HomePage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="order-2 w-full max-w-xl xl:ml-auto"
+                className="order-2 w-full max-w-xl xl:ml-auto xl:sticky xl:top-[calc(var(--navbar-h)+1.25rem)] xl:z-[5] xl:self-start"
               >
-                <div className="hero-booking-shell">
-                  <div className="px-6 pt-6 md:px-8 md:pt-8">
+                <div className="hero-booking-shell shadow-xl shadow-primary/10">
+                  <div className="px-6 pt-6 pb-5 md:px-8 md:pt-8 border-b border-slate-200/80">
                     <p className="text-[11px] font-semibold tracking-[0.2em] text-gold uppercase">
-                      Quick Booking
+                      Book online
                     </p>
-                    <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mt-2">
-                      Plan Your Next Flight
+                    <h2 className="font-playfair text-xl sm:text-2xl md:text-3xl font-semibold text-primary mt-2 leading-snug">
+                      Book airport meet and greet service online
                     </h2>
-                    <p className="text-slate-600 text-sm mt-2">
-                      Share your details and our concierge team will get back to you shortly.
+                    <p className="text-slate-600 text-sm mt-3 leading-relaxed">
+                      VIP assistance for business travelers, families, seniors, and first-time flyers—smooth arrival, departure, or transit.
                     </p>
+                    <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-slate-700 text-sm">
+                      {[
+                        'Meet & assist at entry / gate',
+                        'Priority check-in & security',
+                        'Fast track immigration',
+                        'Baggage & porter support',
+                      ].map((line) => (
+                        <li key={line} className="flex gap-2 items-start">
+                          <span className="text-gold font-bold shrink-0" aria-hidden>
+                            ✓
+                          </span>
+                          <span className="leading-snug">{line}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   <div className="mt-6 border-y border-slate-200/80 bg-slate-50/70">
@@ -251,8 +282,8 @@ export default function HomePage() {
                       <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">
                         Travel Details
                       </p>
-                      <p className="text-slate-600 text-xs mt-1">
-                        Fill in the form to receive a confirmed concierge response within minutes.
+                      <p className="text-slate-600 text-xs mt-1 leading-relaxed">
+                        Submit details for a quick confirmation from our team.
                       </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -456,12 +487,12 @@ export default function HomePage() {
                     <button
                       type="submit"
                       disabled={submitStatus === 'loading'}
-                      className="mt-6 w-full bg-primary text-white font-medium py-3 px-6 rounded-xl hover:bg-primary/90 focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-white uppercase tracking-wider disabled:opacity-60 transition-all"
+                      className="mt-6 w-full bg-primary text-white font-medium py-3 px-6 rounded-xl hover:bg-primary/90 focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-white uppercase tracking-wider disabled:opacity-60 transition-all text-sm sm:text-base"
                     >
-                      {submitStatus === 'loading' ? 'Sending...' : 'Search Concierge Availability'}
+                      {submitStatus === 'loading' ? 'Sending...' : 'Submit & get confirmation'}
                     </button>
-                    <p className="mt-3 text-[11px] text-slate-600 text-center">
-                      Priority support available <span className="font-semibold text-primary">24/7</span> for all bookings.
+                    <p className="mt-3 text-[11px] text-slate-600 text-center leading-relaxed">
+                      <span className="font-semibold text-primary">24/7</span> support · Quick response · Global coverage
                     </p>
                   </form>
                 </div>
@@ -471,10 +502,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust stats bar */}
-      <section className="bg-white border-t border-gray-200 px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-24">
+      {/* Trust stats + pricing intro */}
+      <section className="bg-white border-t border-gray-200 px-4 sm:px-6 lg:px-8 py-10 md:py-14 lg:py-20">
         <div className="container-custom max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+            <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-3 border-b border-gold pb-3 px-2">
+              Airport meet and greet service price
+            </h2>
+            <p className="text-gray-700 text-sm md:text-base max-w-2xl mb-10 leading-relaxed">
+              Flexible pricing by airport and service. Custom packages,{' '}
+              <span className="font-medium text-primary">no hidden charges</span>—contact us for instant booking.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {trustStats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -482,7 +522,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card text-center min-w-0 flex flex-col items-center p-6"
+                className="glass-card text-center min-w-0 flex flex-col items-center justify-center p-7 min-h-[9.5rem]"
               >
                 <div className="w-full min-h-[4.25rem] sm:min-h-[3.5rem] lg:min-h-[4rem] flex flex-col items-center justify-center">
                   {stat.stars ? (
@@ -508,20 +548,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Services – 3 cards */}
+      {/* Our Services – image carousel */}
       <section className="section-padding bg-white border-t border-gray-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
-            Our Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-12">
-            {services.map((s, i) => (
-              <ServiceCard key={s.title} icon={s.icon} title={s.title} description={s.description} index={i} />
-            ))}
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center mb-8">
+            <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary mb-3 border-b border-gold pb-4 px-2 leading-tight">
+              Our airport assistance services
+            </h2>
+            <p className="text-gray-600 text-sm md:text-base max-w-2xl leading-relaxed">
+              Arrival, departure, and transit meet &amp; greet; fast track, porter, and lounge where available.
+            </p>
           </div>
-          <div className="text-center mt-10">
+          <HomeServicesCarousel />
+          <div className="text-center mt-12">
             <Button href="/services" variant="secondary">
-              View All Services
+              View all services &amp; add-ons
             </Button>
           </div>
         </div>
@@ -530,10 +571,15 @@ export default function HomePage() {
       {/* Why Choose Us – 4 cards */}
       <section className="section-padding bg-skyBlue border-t border-gray-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
-            Why Choose Us
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center mb-10">
+            <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-3 border-b border-gold pb-4 px-2 leading-tight">
+              Why choose our airport meet &amp; greet service?
+            </h2>
+            <p className="text-gray-700 text-sm max-w-xl leading-relaxed">
+              We don&apos;t just offer a service—we deliver peace of mind.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch">
             {whyChoose.map((item, i) => (
               <motion.div
                 key={item.title}
@@ -541,26 +587,77 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card p-6 text-center hover:border-gold transition-all"
+                className="glass-card flex h-full flex-col p-6 md:p-7 text-center hover:border-gold transition-all"
               >
-                <h3 className="font-playfair text-lg font-semibold text-primary mb-2">{item.title}</h3>
-                <p className="text-gray-700 text-sm">{item.text}</p>
+                <h3 className="font-playfair text-lg font-semibold text-primary mb-3 leading-snug">{item.title}</h3>
+                <p className="text-gray-700 text-sm leading-relaxed flex-1">{item.text}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Client Feedback – 4 testimonials */}
+      {/* Still confused + social proof + CTA (same grid structure) */}
       <section className="section-padding bg-white border-t border-gray-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
-            Client Feedback
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center mb-10">
+            <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-3 border-b border-gold pb-4 px-2 leading-tight">
+              Still confused about our services?
+            </h2>
+            <p className="text-gray-700 text-sm md:text-base max-w-2xl leading-relaxed">
+              We match the right assistance to your route, passengers, and schedule.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {testimonials.map((t, i) => (
               <TestimonialCard key={t.author} quote={t.quote} author={t.author} role={t.role} index={i} />
             ))}
+          </div>
+          <div className="mt-14 max-w-3xl mx-auto rounded-2xl border border-gray-200/80 bg-gradient-to-b from-slate-50/90 to-white px-6 py-10 md:px-10 md:py-12 text-center shadow-sm">
+            <p className="text-2xl sm:text-3xl font-playfair font-semibold text-primary mb-2">Talk to our experts now</p>
+            <p className="text-gray-600 text-sm md:text-base mb-8">
+              <span aria-hidden>📞</span> Get instant guidance &amp; booking support
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+              <Button href="tel:+919000000000" variant="primary" size="md">
+                Call now
+              </Button>
+              <Button
+                href="https://wa.me/919000000000"
+                variant="secondary"
+                size="md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp us
+              </Button>
+              <Button href="/contact" variant="primary" size="md">
+                Book online
+              </Button>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <h3 className="font-playfair text-xl md:text-2xl font-semibold text-primary mb-5">Get in touch</h3>
+            <ul className="text-gray-700 text-sm md:text-base flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-x-8 gap-y-3 max-w-2xl mx-auto">
+              <li className="flex items-center gap-2">
+                <span className="text-gold font-bold" aria-hidden>
+                  ✓
+                </span>
+                <span>24/7 support available</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-gold font-bold" aria-hidden>
+                  ✓
+                </span>
+                <span>Quick response team</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-gold font-bold" aria-hidden>
+                  ✓
+                </span>
+                <span>Global service coverage</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -568,11 +665,17 @@ export default function HomePage() {
       {/* Global Reach */}
       <section className="section-padding bg-skyBlue border-t border-gray-200 overflow-hidden min-w-0">
         <div className="container-custom max-w-7xl mx-auto">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-primary text-center mb-4 border-b border-gold pb-4 inline-block mx-auto block w-fit">
-            Global Reach
-          </h2>
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center mb-8">
+            <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-3 border-b border-gold pb-4 px-2 leading-tight">
+              Airports we serve in India
+            </h2>
+            <p className="text-gray-700 text-sm md:text-base max-w-2xl leading-relaxed">
+              Mumbai, Delhi, Bangalore, Ahmedabad—plus{' '}
+              <span className="font-semibold text-primary">600+ airports worldwide</span>.
+            </p>
+          </div>
         </div>
-        <div className="mt-12 w-full max-w-full min-w-0 lg:w-screen lg:relative lg:left-1/2 lg:-translate-x-1/2 lg:max-w-[100vw]">
+        <div className="mt-2 w-full max-w-full min-w-0 lg:w-screen lg:relative lg:left-1/2 lg:-translate-x-1/2 lg:max-w-[100vw]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -580,24 +683,24 @@ export default function HomePage() {
             className="relative w-full max-w-full min-w-0 overflow-hidden rounded-xl border border-gray-200 border-gold/25 shadow-md min-h-[230px] aspect-[16/9] max-h-[320px] sm:aspect-[21/9] sm:max-h-[400px] lg:rounded-none lg:border-x-0 lg:border-y lg:border-gold/30 lg:aspect-auto lg:max-h-none lg:min-h-[360px] lg:h-[clamp(340px,33vw,520px)]"
           >
             <Image
-              src={globalReachImage}
-              alt="Global reach"
+              src={globalReachHeroImage}
+              alt="Airport concierge professional with headset and aircraft on the tarmac"
               fill
-              className="object-cover object-[center_35%] opacity-95 sm:object-[center_40%]"
+              className="object-cover object-[center_40%] opacity-95 sm:object-center"
               sizes="(max-width: 1023px) 100vw, 100vw"
             />
             <div className="absolute inset-0 hero-overlay" aria-hidden />
             <div className="absolute inset-0 bg-primary/15 pointer-events-none" aria-hidden />
             <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8">
-              <p className="font-playfair text-xl sm:text-2xl lg:text-3xl text-white text-center max-w-3xl mx-auto leading-snug drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]">
-                Premium concierge services at major airports worldwide.
+              <p className="font-playfair text-lg sm:text-xl lg:text-2xl text-white text-center max-w-3xl mx-auto leading-snug drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)] px-2">
+                Mumbai · Delhi · Bangalore · Ahmedabad + 600+ globally. Same-day quotes &amp; coordinators.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <FAQ items={faqItems} />
+      <FAQ items={faqItems} title="Frequently asked questions (FAQs)" />
     </>
   );
 }
